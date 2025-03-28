@@ -14,7 +14,7 @@ const ListaTarefas = ({ tarefas, setTarefas }) => {
   return (
     <div className="mt-8 px-4">
       {tarefas.filter(tarefa => !tarefa.completed).map((tarefa) => (
-          <div key={tarefa.id} className="bg-white rounded-xl p-4 mb-4 w-full max-w-md mx-auto flex justify-between items-center">
+          <div className="bg-white rounded-xl p-4 mb-4 w-full max-w-md mx-auto flex justify-between items-center">
             <span className="text-black">{tarefa.text}</span>
             <div className="flex gap-3">
               <button onClick={() => concluirTarefa(tarefa.id)} className="text-green-600 hover:underline">

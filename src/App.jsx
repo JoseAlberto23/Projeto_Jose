@@ -16,7 +16,7 @@ function App() {
   }, [tarefas]);
 
   return (
-    <div className="min-h-screen bg-gray-100 mb-full ml-0 ml-80">
+    <div className="min-h-screen bg-gray-100 mb-full ml-80">
       <Escopo />
       <BarraTarefas tarefas={tarefas} setTarefas={setTarefas} />
       <CampoTarefas tarefas={tarefas} setTarefas={setTarefas} />

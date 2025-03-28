@@ -1,22 +1,10 @@
 const BarraTarefas = ({ tarefas, setTarefas }) => {
   const pendentes = tarefas.filter(tarefa => !tarefa.completed);
   const concluidas = tarefas.filter(tarefa => tarefa.completed);
- 
-  const atualizarConcluidas = (id) => {
-    const atualizar = tarefas.map(tarefa => 
-      tarefa.id === id ? { ...tarefa, completed: false } : tarefa
-    );
-    setTarefas(atualizar);
 
-
-
-
-  };
-
-  const excluirTarefa = (id) => {
+  const excluirTarefaConcluidas = (id) => {
     const atualizadas = tarefas.filter(tarefa => tarefa.id !== id);
 
-    
     setTarefas(atualizadas);
   };
 
@@ -26,9 +14,9 @@ const BarraTarefas = ({ tarefas, setTarefas }) => {
 
       <div className="mb-8 absolute top-40">
         <h2 className="text-xl mb-2">Tarefas a fazer</h2>
-        <ul className="list-disc ml-5 space-y-1">
+        <ul className=" ml-5 space-y-1">
           {pendentes.map(tarefa => (
-            <li className="text-red-500" key={tarefa.id}>
+            <li className="text-white" key={tarefa.id}>
               {tarefa.text}
             </li>
           ))}
@@ -36,13 +24,13 @@ const BarraTarefas = ({ tarefas, setTarefas }) => {
       </div>
 
       <div className="mt-[470px]">
-        <h2 className="text-xl mb-2">Tarefas concluídas</h2>
-        <ul className="list-disc ml-5 space-y-1">
+        <h2 className="text-xl">Tarefas concluídas</h2>
+        <ul className="ml-5 space-y-1">
           {concluidas.map(tarefa => (
             <li className="text-green-400 flex justify-between items-center" key={tarefa.id}>
               {tarefa.text}
               <button
-                onClick={() => excluirTarefa(tarefa.id)}
+                onClick={() => excluirTarefaConcluidas(tarefa.id)}
                 className="ml-2 text-red-300 hover:underline"
               >
                 Excluir

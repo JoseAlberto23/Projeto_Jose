@@ -2,15 +2,23 @@ import BarraTarefas from './components/BarraTarefas';
 import CampoTarefas from './components/CampoTarefas';
 import Escopo from './components/Escopo';
 import ListaTarefas from './components/Tarefas';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
-  const [tarefas, setTarefas] = useState([]);
+  const [tarefas, setTarefas] = useState(() => {
+
+    const tarefasSalvas = localStorage.getItem('tarefas');
+    return tarefasSalvas ? JSON.parse(tarefasSalvas) : [];
+  });
+  
+  useEffect(() => {
+    localStorage.setItem('tarefas', JSON.stringify(tarefas));
+  }, [tarefas]);
 
   return (
-    <div className="ml-80 min-h-screen bg-gray-100 mb-12">
+    <div className="ml-80 min-h-screen bg-gray-100 mb-full">
       <Escopo />
-      <BarraTarefas tarefas={tarefas} setTarefas={setTarefas}/>
+      <BarraTarefas tarefas={tarefas} setTarefas={setTarefas} />
       <CampoTarefas tarefas={tarefas} setTarefas={setTarefas} />
       <ListaTarefas tarefas={tarefas} setTarefas={setTarefas} />
     </div>

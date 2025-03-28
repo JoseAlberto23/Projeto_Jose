@@ -15,6 +15,7 @@ const CampoTarefas = ({ tarefas, setTarefas }) => {
     setTarefas([...tarefas, novaTarefa]);
     setEntrada("");
   };
+  
 
   return (
     <div className="flex items-center justify-center mt-10">
@@ -27,7 +28,7 @@ const CampoTarefas = ({ tarefas, setTarefas }) => {
       />
       <button
         onClick={adicionarTarefa}
-        className="ml-2 px-5 py-2 h-10 rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:ring-2 focus:ring-blue-500"
+        className="ml-2 px-5 py-2 h-10 rounded-lg text-white bg-blue-600 hover:bg-blue-700 "
       >
         Adicionar
       </button>

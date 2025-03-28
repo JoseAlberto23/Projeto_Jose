@@ -6,7 +6,7 @@ const ListaTarefas = ({ tarefas, setTarefas }) => {
     setTarefas(atualizadas);
   };
 
-  const excluirTarefa = (id) => {
+  const excluirTarefaPendente = (id) => {
     const filtradas = tarefas.filter(tarefa => tarefa.id !== id);
     setTarefas(filtradas);
   };
@@ -20,7 +20,7 @@ const ListaTarefas = ({ tarefas, setTarefas }) => {
               <button onClick={() => concluirTarefa(tarefa.id)} className="text-green-600 hover:underline">
                 Concluir
               </button>
-              <button onClick={() => excluirTarefa(tarefa.id)} className="text-red-600 hover:underline">
+              <button onClick={() => excluirTarefaPendente(tarefa.id)} className="text-red-600 hover:underline">
                 Excluir
               </button>
             </div>
